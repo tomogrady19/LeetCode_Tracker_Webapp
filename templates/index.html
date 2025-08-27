@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LeetCode Stats</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>LeetCode Stats</h1>
+        <input type="text" id="username" placeholder="Enter your LeetCode username">
+        <button onclick="fetchStats()">Fetch Stats</button>
+
+        <div id="loading" class="hidden">Loading...</div>
+        <div id="error" class="error hidden"></div>
+
+        <div id="stats" class="hidden">
+            <p id="userDisplay"></p>
+            <p>Total Solved: <span id="total"></span></p>
+            <ul>
+                <li>Easy: <span id="easy"></span></li>
+                <li>Medium: <span id="medium"></span></li>
+                <li>Hard: <span id="hard"></span></li>
+            </ul>
+            <canvas id="chart"></canvas>
+        </div>
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>
