@@ -1,11 +1,19 @@
+import os
 from sqlalchemy import create_engine, Column, Integer, String, DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
 from datetime import datetime
 
-# Database URL - SQLite file
-DATABASE_URL = "sqlite+aiosqlite:///./leetcode_stats.db"
+# Use PostgreSQL in production (Render), SQLite locally
+DATABASE_URL = os.environ.get(
+    "DATABASE_URL", 
+    "sqlite+aiosqlite:///./leetcode_stats.db"
+)
+
+# Handle Render PostgreSQL URL format
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql+asyncpg://")
 
 # Create async engine
 engine = create_async_engine(DATABASE_URL, echo=False)
@@ -16,7 +24,7 @@ Base = declarative_base()
 
 class UserCheck(Base):
     __tablename__ = "user_checks"
-
+    
     id = Column(Integer, primary_key=True, index=True)
     username = Column(String, index=True)
     total_solved = Column(Integer)
