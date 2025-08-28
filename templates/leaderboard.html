@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LeetCode Leaderboard</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container leaderboard-container">
+        <h1>LeetCode Leaderboard</h1>
+        <nav>
+            <a href="/" class="nav-link">Stats</a>
+            <a href="/leaderboard" class="nav-link active">Leaderboard</a>
+        </nav>
+
+        <p class="subtitle">Most checked users in the past week</p>
+
+        <div id="loading" class="hidden">Loading...</div>
+        <div id="error" class="error hidden"></div>
+
+        <div id="leaderboard" class="hidden">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Checks</th>
+                        <th>Total Solved</th>
+                    </tr>
+                </thead>
+                <tbody id="leaderboard-body">
+                </tbody>
+            </table>
+        </div>
+
+        <div id="empty-leaderboard" class="hidden">
+            <p>No users checked in the past week. Be the first!</p>
+            <a href="/" class="nav-link">Check your stats</a>
+        </div>
+    </div>
+    <script src="/static/leaderboard.js"></script>
+</body>
+</html>

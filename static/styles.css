@@ -1,10 +1,11 @@
 body {
     font-family: sans-serif;
-    background: grey;
+    background: lightblue;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 1rem;
 }
 
 .container {
@@ -15,6 +16,41 @@ body {
     text-align: center;
     max-width: 400px;
     width: 100%;
+}
+
+.leaderboard-container {
+    max-width: 600px;
+}
+
+nav {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.nav-link {
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: blue;
+    border: 1px solid blue;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.nav-link:hover {
+    background-color: blue;
+    color: white;
+}
+
+.nav-link.active {
+    background-color: blue;
+    color: white;
+}
+
+.subtitle {
+    color: black;
+    margin-bottom: 1rem;
 }
 
 input, button {
@@ -43,4 +79,41 @@ button {
 canvas {
     margin-top: 1rem;
     max-width: 100%;
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid grey;
+}
+
+.leaderboard-table th {
+    background-color: lightblue;
+    font-weight: bold;
+}
+
+.leaderboard-table tr:hover {
+    background-color: lightblue;
+}
+
+.rank {
+    width: 60px;
+    text-align: center !important;
+    font-weight: bold;
+}
+
+.username {
+    font-weight: bold;
+    color: blue;
+}
+
+.checks, .total-solved {
+    text-align: center !important;
 }
