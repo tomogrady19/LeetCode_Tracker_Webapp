@@ -11,14 +11,11 @@ DATABASE_URL = os.environ.get(
     "sqlite+aiosqlite:///./leetcode_stats.db"
 )
 
-# Handle Render PostgreSQL URL format - force asyncpg
+# Handle Render PostgreSQL URL format (force asyncpg)
 if DATABASE_URL.startswith("postgres://"):
     DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql+asyncpg://")
 elif DATABASE_URL.startswith("postgresql://"):
     DATABASE_URL = DATABASE_URL.replace("postgresql://", "postgresql+asyncpg://")
-
-# Debug: Print the URL (without credentials) for troubleshooting
-print(f"Database URL scheme: {DATABASE_URL.split('://')[0] if '://' in DATABASE_URL else 'No scheme found'}")
 
 # Create async engine
 engine = create_async_engine(DATABASE_URL, echo=False)
